@@ -261,7 +261,7 @@ function run-spark-job() {
     execute_withlog ${SUBMIT_CMD}
     result=$?
     stop-monitor ${MONITOR_PID}
-    if [ $result -ne 0 ]
+    if [ $result -gt 1 ]
     then
         echo -e "${BRed}ERROR${Color_Off}: Spark job ${BYellow}${CLS}${Color_Off} failed to run successfully."
         echo -e "${BBlue}Hint${Color_Off}: You can goto ${BYellow}${WORKLOAD_RESULT_FOLDER}/bench.log${Color_Off} to check for detailed log.\nOpening log tail for you:\n"

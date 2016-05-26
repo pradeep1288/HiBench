@@ -42,5 +42,6 @@ object ScalaWordCount{
                      .reduceByKey(_ + _)
     io.save(args(1), counts)
     sc.stop()
+    System.exit(1)
   }
 }

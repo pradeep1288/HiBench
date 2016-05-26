@@ -34,3 +34,4 @@ if __name__ == "__main__":
                   .reduceByKey(add)
     counts.saveAsTextFile(sys.argv[2])
     sc.stop()
+    sys.exit(1)
