@@ -17,7 +17,7 @@
 import sys, os, subprocess
 from terminalsize import get_terminal_size
 from time import time, sleep
-import re    
+import re
 
 def load_colors():
     color_script_fn = os.path.join(os.path.dirname(__file__), "color.enabled.sh")
@@ -54,7 +54,7 @@ class _Matcher:
             m = p.match(line)
             if m:
                 return float(m.groups()[0]) / float(m.groups()[1]) * 100
-        
+
 matcher = _Matcher()
 
 def show_with_progress_bar(line, progress, line_width):
@@ -100,7 +100,7 @@ def execute(workload_result_file, command_lines):
         if ("warn" in lline or 'error' in lline or 'exception' in lline) and lline.lstrip() == lline:
             COLOR="Yellow" if "warn" in lline else "Red"
             sys.stdout.write((u"{%s}{line}{Color_Off}{ClearEnd}\n" % COLOR).format(line=line,**Color).encode('utf-8'))
-            
+
         else:
             if len(line) >= width:
                 line = line[:width-4]+'...'
